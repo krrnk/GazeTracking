@@ -48,6 +48,10 @@ def gaze_track(gaze, webcam):
         text = "Looking right"
     elif gaze.is_left():
         text = "Looking left"
+    elif gaze.is_top():
+        text = "Looking up"
+    elif gaze.is_bottom():
+        text = "Looking down"
     elif gaze.is_center():
         text = "Looking center"
 
@@ -72,7 +76,7 @@ def gaze_track(gaze, webcam):
     
     cv2.imshow("Demo", frame)
 
-    return avgVel 
+    return avgVel, gaze.is_right(), gaze.is_left(), gaze.is_top(), gaze.is_bottom(), gaze.is_center() 
 
 
 
